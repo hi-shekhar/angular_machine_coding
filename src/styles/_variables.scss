@@ -1,0 +1,28 @@
+// Primary colors
+$color-primary-blue: #007bff;
+$color-secondary-gray: #6c757d;
+
+// Text colors
+$color-text-dark: #343a40;
+$color-text-light: #f8f9fa;
+$color-text-muted: #888;
+
+// Background colors
+$color-background-light: #ffffff;
+$color-background-gray: #f8f9fa;
+
+// Border and divider colors
+$color-border-light: #dee2e6;
+$color-divider-subtle: #e9ecef;
+
+// Success, Warning, Danger, Info (common semantic colors)
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+
+$app-header-background: $color-primary-blue;
+$app-text-color: $color-text-dark;
+$card-background: $color-background-light;
+$card-border: $color-border-light;
+$loading-indicator-color: $color-secondary-gray;

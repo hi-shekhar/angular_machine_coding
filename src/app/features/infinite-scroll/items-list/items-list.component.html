@@ -1,0 +1,32 @@
+<div class="items-list-container">
+  <h2>Infinite Scroll List (Virtual Scrolling)</h2>
+
+  <cdk-virtual-scroll-viewport itemSize="80" class="virtual-scroll-viewport">
+    <div *cdkVirtualFor="let item of items(); trackBy: trackByItemId" class="item-card">
+      <div class="item-detail">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="item-id">ID: {{ item.id }}</div>
+    </div>
+
+    @if (isLoading()) {
+    <div class="loading-indicator">
+      Loading more items...
+      <div class="spinner"></div>
+    </div>
+    }
+
+    @if (!hasMoreData() && !isLoading() && items().length > 0) {
+    <div class="no-more-data">
+      You've reached the end of the list.
+    </div>
+    }
+
+    @if (items().length === 0 && !isLoading()) {
+    <div class="empty-state">
+      No items to display.
+    </div>
+    }
+  </cdk-virtual-scroll-viewport>
+</div>

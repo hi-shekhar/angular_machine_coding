@@ -1,0 +1,57 @@
+@use '../../styles/variables' as vars;
+
+.home-container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: vars.$color-background-light;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  color: vars.$color-primary-blue;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  color: vars.$color-text-dark;
+  margin-bottom: 30px;
+}
+
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.catalog-item {
+  display: block;
+  background-color: vars.$color-background-gray;
+  border: 1px solid vars.$color-border-light;
+  border-radius: 8px;
+  padding: 20px;
+  text-decoration: none;
+  color: vars.$color-text-dark;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    color: vars.$color-text-dark;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: vars.$color-secondary-gray;
+    font-size: 0.9em;
+    line-height: 1.5;
+    text-align: left;
+  }
+}

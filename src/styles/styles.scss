@@ -1,0 +1,8 @@
+@use 'variables' as vars;
+
+body {
+    font-family: Arial, sans-serif;
+    color: vars.$app-text-color;
+    background-color: vars.$color-background-gray;
+    box-sizing: border-box;
+}
