@@ -6,20 +6,20 @@ import {
   ViewChild,
   signal,
   AfterViewInit,
-  DestroyRef 
+  DestroyRef
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule, CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { ItemsService, Item } from '../services/items.service'; 
+import { ItemsService, Item } from '../services/items.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime, filter } from 'rxjs/operators'; 
+import { debounceTime, filter } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-items-list',
-  imports: [CommonModule, ScrollingModule],
+  imports: [CommonModule, ScrollingModule, RouterLink],
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsListComponent implements OnInit, AfterViewInit {
   private itemsService = inject(ItemsService);
@@ -52,7 +52,7 @@ export class ItemsListComponent implements OnInit, AfterViewInit {
     this.viewport.scrolledIndexChange.pipe(
       debounceTime(100),
       filter(() => !this.isLoading() && this.hasMoreData() && !!this.viewport),
-      takeUntilDestroyed(this.destroyRef) 
+      takeUntilDestroyed(this.destroyRef)
     ).subscribe((index: number) => {
       const loadedItemsCount = this.items().length;
       const totalItemsInBackend = this.totalItemsCount;
