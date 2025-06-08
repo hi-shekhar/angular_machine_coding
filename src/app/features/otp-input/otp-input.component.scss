@@ -40,6 +40,8 @@ p {
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     background-color: vars.$color-background-gray;
     color: vars.$color-text-dark;
+    cursor: not-allowed;
+    pointer-events: none;
 
     &:focus {
       border-color: vars.$color-primary-blue;
@@ -49,6 +51,11 @@ p {
 
     &:not(:placeholder-shown) {
       border-color: color.adjust(vars.$color-border-light, $lightness: -10%);
+    }
+
+    &:nth-child(1) {
+      cursor: pointer;
+      pointer-events: all;
     }
   }
 }
