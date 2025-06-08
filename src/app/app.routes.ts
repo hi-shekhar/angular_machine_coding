@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ItemsListComponent } from './features/infinite-scroll/items-list/items-list.component';
+import { OtpInputComponent } from './features/otp-input/otp-input.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,11 @@ export const routes: Routes = [
     path: 'infinite-scroll',
     component: ItemsListComponent,
     title: 'Infinite Scroll List'
+  },
+  {
+    path: 'otp-input',
+    component: OtpInputComponent,
+    title: 'Otp Input Component'
   },
   {
     path: '**',

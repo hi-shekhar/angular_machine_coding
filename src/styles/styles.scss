@@ -6,3 +6,16 @@ body {
     background-color: vars.$color-background-gray;
     box-sizing: border-box;
 }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: vars.$color-primary-blue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
