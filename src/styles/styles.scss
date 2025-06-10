@@ -1,10 +1,17 @@
 @use 'variables' as vars;
 
+
+html,
 body {
-    font-family: Arial, sans-serif;
-    color: vars.$app-text-color;
-    background-color: vars.$color-background-gray;
-    box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  background-color: vars.$color-background-gray;
+  box-sizing: border-box;
+  color: vars.$app-text-color;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
 }
 
 .back-link {

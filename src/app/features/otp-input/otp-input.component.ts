@@ -12,6 +12,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
     selector: 'app-otp-input',
@@ -19,6 +20,7 @@ import { RouterLink } from '@angular/router';
     imports: [
         CommonModule,
         FormsModule,
+        MatCheckboxModule,
         RouterLink
     ],
     templateUrl: './otp-input.component.html',
@@ -36,6 +38,7 @@ export class OtpInputComponent implements OnInit {
 
     isOtpValid = signal(false);
     enteredOtp = signal('');
+    isMasked = signal(true);
 
     ngOnInit(): void {
         this.otpDigits.set(new Array(this.otpLength).fill(''));
