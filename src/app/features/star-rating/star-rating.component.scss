@@ -1,0 +1,88 @@
+@use '../../../styles/variables' as vars;
+@use 'sass:color';
+
+.star-rating-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: vars.$color-background-light;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+
+  --star-size: 40px;
+  --star-color-empty: #ccc;
+  --star-color-filled: #FFD700;
+  --star-color-hover: #FFA500;
+  --star-transition-duration: 0.2s;
+}
+
+h2 {
+  color: vars.$color-text-dark;
+  margin-bottom: 10px;
+  font-size: 1.8em;
+}
+
+p {
+  color: vars.$color-secondary-gray;
+  margin-bottom: 30px;
+  font-size: 1em;
+}
+
+.stars-container {
+  display: inline-flex;
+  gap: 5px;
+  margin-bottom: 20px;
+
+  &.read-only .star {
+    cursor: default;
+
+    &:hover {
+      color: var(--star-color-empty);
+    }
+  }
+
+  .star {
+    font-size: var(--star-size);
+    color: var(--star-color-empty);
+    cursor: pointer;
+    transition: color var(--star-transition-duration) ease-in-out, transform var(--star-transition-duration) ease-in-out;
+    line-height: 1;
+
+    &:hover {
+      color: var(--star-color-hover);
+      transform: scale(1.1);
+    }
+
+    &.filled {
+      color: var(--star-color-filled);
+    }
+  }
+}
+
+.current-selection {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: vars.$color-text-dark;
+
+  strong {
+    color: vars.$color-primary-blue;
+  }
+}
+
+.clear-button {
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 8px 15px;
+  background-color: vars.$color-primary-blue;
+  color: vars.$color-text-light;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: color.adjust(vars.$color-primary-blue, $lightness: -10%);
+  }
+}
