@@ -1,7 +1,6 @@
 @use '../../../styles/variables' as vars;
 @use 'sass:color';
 
-// Default star sizing and colors
 .star-rating-wrapper {
   max-width: 600px;
   margin: 40px auto;
@@ -16,19 +15,6 @@
   --star-color-filled: #FFD700;
   --star-color-hover: #FFA500;
   --star-transition-duration: 0.2s;
-}
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 25px;
-  color: vars.$color-primary-blue;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 h2 {
