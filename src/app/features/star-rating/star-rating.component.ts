@@ -21,6 +21,7 @@ export class StarRatingComponent {
   /** Default total stars  */
   totalStars = signal(5);
   readOnly = signal(false);
+  allowHalfStars = signal(false);
 
   /** Array to generate star elements  */
   stars = signal<number[]>([]);
@@ -48,12 +49,40 @@ export class StarRatingComponent {
 
   isStarFilled(starValue: number): boolean {
     const displayRating = this.hoverRating() > 0 ? this.hoverRating() : this.currentRating();
-    return starValue <= displayRating;
+    // A star is fully filled if its value is less than or equal to the display rating,
+    // AND it's not the half-filled part of a star.
+    return starValue <= displayRating && (starValue - 0.5 !== displayRating);
+  }
+
+  isStarHalfFilled(starValue: number): boolean {
+    if (!this.allowHalfStars()) return false;
+
+    const displayRating = this.hoverRating() > 0 ? this.hoverRating() : this.currentRating();
+    return starValue - 0.5 === displayRating;
   }
 
   selectRating(starValue: number) {
     if (this.readOnly()) return;
-    this.currentRating.set(starValue);
+    let newRating = 0;
+    if (this.allowHalfStars()) {
+      // If clicking a half-star (based on hover state or direct click position)
+      if (this.hoverRating() === starValue - 0.5 && this.currentRating() !== starValue - 0.5) {
+        newRating = starValue - 0.5;
+      }
+      // If clicking the same full star, toggle off (like 5 stars then click 5 again => 0 stars)
+      else if (this.hoverRating() === starValue && this.currentRating() === starValue) {
+        newRating = 0;
+      }
+      else {
+        // Otherwise, set to full star
+        newRating = starValue;
+      }
+    } else {
+      // If half stars not allowed, just toggle full star
+      newRating = (this.currentRating() === starValue) ? 0 : starValue;
+    }
+
+    this.currentRating.set(newRating);
     this.hoverRating.set(0);
   }
 
@@ -62,9 +91,27 @@ export class StarRatingComponent {
     this.hoverRating.set(0);
   }
 
-  onStarHover(starValue: number) {
+  onStarHover(starValue: number, event: MouseEvent) {
     if (this.readOnly()) return;
-    this.hoverRating.set(starValue);
+    if (this.allowHalfStars()) {
+      // Get the specific star element
+      const starElement = event.target as HTMLElement;
+      // Get its position and size
+      const rect = starElement.getBoundingClientRect();
+      // X position of mouse relative to star's left edge
+      const x = event.clientX - rect.left;
+      const width = rect.width;
+
+      if (x < width / 2) {
+        // If mouse is on left half, set half-star
+        this.hoverRating.set(starValue - 0.5);
+      } else {
+        // If mouse is on right half, set full star
+        this.hoverRating.set(starValue);
+      }
+    } else {
+      this.hoverRating.set(starValue);
+    }
   }
 
   onMouseLeave() {
