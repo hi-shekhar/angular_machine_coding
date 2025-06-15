@@ -6,18 +6,21 @@
 
   <div class="stars-container" [class.read-only]="readOnly()" (mouseleave)="onMouseLeave()">
     @for (starValue of stars(); track starValue) {
-    <span class="star" [class.filled]="isStarFilled(starValue)" (click)="selectRating(starValue)"
-      [attr.aria-label]="starValue + ' out of ' + totalStars() + ' stars'" (mouseover)="onStarHover(starValue)">
+    <span class="star" [class.filled]="isStarFilled(starValue)" [class.half-filled]="isStarHalfFilled(starValue)"
+      (click)="selectRating(starValue)" [attr.aria-label]="starValue + ' out of ' + totalStars() + ' stars'"
+      (mouseover)="onStarHover(starValue, $event)">
       &#9733;
     </span>
     }
   </div>
 
-  @if (!readOnly()) { <button class="clear-button" (click)="clearRating()">Clear Rating</button>
+  @if (!readOnly()) {
+  <button class="clear-button" (click)="clearRating()">Clear Rating</button>
   }
 
   <div class="current-selection">
-    Current Rating: <strong>{{ currentRating() }}</strong> / {{ totalStars() }} <p>Hover Rating: {{ hoverRating() }}</p>
+    Current Rating: <strong>{{ currentRating() | number:'1.0-1' }}</strong> / {{ totalStars() }} <p>Hover Rating: {{
+      hoverRating() | number:'1.0-1' }}</p>
   </div>
 
   <div class="component-controls">
@@ -29,6 +32,9 @@
     <label>
       Read Only:
       <input type="checkbox" [(ngModel)]="readOnly">
+    </label>
+    <label> Allow Half Stars:
+      <input type="checkbox" [(ngModel)]="allowHalfStars">
     </label>
   </div>
 </div>

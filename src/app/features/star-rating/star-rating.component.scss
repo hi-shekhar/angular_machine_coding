@@ -57,6 +57,22 @@ p {
     &.filled {
       color: var(--star-color-filled);
     }
+
+    &.half-filled {
+      color: var(--star-color-empty);
+      overflow: hidden;
+
+      &::before {
+        content: '\2605';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        overflow: hidden;
+        color: var(--star-color-filled);
+        z-index: 1;
+      }
+    }
   }
 }
 
