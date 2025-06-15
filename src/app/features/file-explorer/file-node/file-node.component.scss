@@ -1,0 +1,44 @@
+.file-node-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.95em;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+
+    .node-icon {
+        margin-right: 8px;
+        font-size: 1.1em;
+        color: #666;
+    }
+
+    .node-name {
+        color: #444;
+        flex-grow: 1;
+    }
+
+    .expand-toggle {
+        margin-right: 4px;
+        font-size: 0.8em;
+        transition: transform 0.15s ease-in-out;
+        transform-origin: center;
+        width: 1em;
+        text-align: center;
+        color: #555;
+    }
+
+    .expand-toggle.expanded {
+        transform: rotate(90deg);
+    }
+
+    .expand-toggle-placeholder {
+        width: 1em;
+        margin-right: 4px;
+        visibility: hidden;
+    }
+}

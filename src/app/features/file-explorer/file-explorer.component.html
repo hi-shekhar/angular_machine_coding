@@ -1,0 +1,10 @@
+<div class="file-explorer-wrapper">
+    <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
+
+    <h2>File Explorer</h2>
+    <div class="file-tree">
+        @for (node of fileSystem(); track node.id) {
+        <app-file-node [node]="node" [level]="0"></app-file-node>
+        }
+    </div>
+</div>

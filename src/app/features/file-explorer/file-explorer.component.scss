@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as vars;
+@use 'sass:color';
+
+.file-explorer-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: vars.$color-background-light;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: vars.$color-text-dark;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.file-tree {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.file-node-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.95em;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+
+    .icon {
+        margin-right: 8px;
+        font-size: 1.1em;
+        color: #666;
+    }
+
+    .name {
+        color: #444;
+    }
+}
