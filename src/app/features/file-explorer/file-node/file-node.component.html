@@ -1,0 +1,18 @@
+<div class="file-node-item" [style.paddingLeft.px]="level * 20">
+    @if (node.type === 'folder' && node.children && node.children.length > 0) {
+    <span class="expand-toggle" [class.expanded]="isExpanded()" (click)="toggleExpand()">
+        {{ isExpanded() ? '▼' : '▶' }}
+    </span>
+    } @else {
+    <span class="expand-toggle-placeholder"></span>
+    }
+
+    <span class="node-icon">{{ node.type === 'folder' ? '📁' : '📄' }}</span>
+    <span class="node-name" (click)="node.type === 'folder' && toggleExpand()">{{ node.name }}</span>
+</div>
+
+@if (node.type === 'folder' && node.children && isExpanded()) {
+@for (childNode of node.children; track childNode.id) {
+<app-file-node [node]="childNode" [level]="level + 1"></app-file-node>
+}
+}
