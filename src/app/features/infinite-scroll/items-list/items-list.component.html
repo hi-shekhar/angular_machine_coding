@@ -1,6 +1,6 @@
-<div class="items-list-container">
+<div class="page-container">
   <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
-  <h2>Infinite Scroll List (Virtual Scrolling)</h2>
+  <h2 class="page-title">Infinite Scroll List (Virtual Scrolling)</h2>
 
   <cdk-virtual-scroll-viewport itemSize="80" class="virtual-scroll-viewport">
     <div *cdkVirtualFor="let item of items(); trackBy: trackByItemId" class="item-card">

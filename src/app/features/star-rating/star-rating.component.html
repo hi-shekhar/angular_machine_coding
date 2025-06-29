@@ -1,8 +1,8 @@
-<div class="star-rating-wrapper">
+<div class="page-container">
   <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
 
-  <h2>Star Rating Component</h2>
-  <p>Click or hover to select a rating.</p>
+  <h2 class="page-title">Star Rating Component</h2>
+  <p class="page-sub-title">Click or hover to select a rating.</p>
 
   <div class="stars-container" [class.read-only]="readOnly()" (mouseleave)="onMouseLeave()">
     @for (starValue of stars(); track starValue) {
