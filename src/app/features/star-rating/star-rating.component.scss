@@ -1,32 +1,12 @@
 @use '../../../styles/variables' as vars;
 @use 'sass:color';
 
-.star-rating-wrapper {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: vars.$color-background-light;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  text-align: center;
-
+.page-container {
   --star-size: 40px;
   --star-color-empty: #ccc;
   --star-color-filled: #FFD700;
   --star-color-hover: #FFA500;
   --star-transition-duration: 0.2s;
-}
-
-h2 {
-  color: vars.$color-text-dark;
-  margin-bottom: 10px;
-  font-size: 1.8em;
-}
-
-p {
-  color: vars.$color-secondary-gray;
-  margin-bottom: 30px;
-  font-size: 1em;
 }
 
 .stars-container {

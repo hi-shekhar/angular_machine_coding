@@ -1,28 +1,6 @@
 @use '../../../styles/variables' as vars;
 @use 'sass:color';
 
-.otp-container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: vars.$color-background-light;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-h2 {
-  color: vars.$color-text-dark;
-  margin-bottom: 10px;
-  font-size: 1.8em;
-}
-
-p {
-  color: vars.$color-secondary-gray;
-  margin-bottom: 30px;
-  font-size: 1em;
-}
-
 .otp-inputs-wrapper {
   display: flex;
   justify-content: center;
