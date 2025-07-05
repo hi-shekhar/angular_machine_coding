@@ -1,0 +1,1 @@
+export type LoaderType = 'Basic' | 'Progress' | 'Progress-Ball';
