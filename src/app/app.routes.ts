@@ -4,6 +4,7 @@ import { ItemsListComponent } from './features/infinite-scroll/items-list/items-
 import { OtpInputComponent } from './features/otp-input/otp-input.component';
 import { StarRatingComponent } from './features/star-rating/star-rating.component';
 import { FileExplorerComponent } from './features/file-explorer/file-explorer.component';
+import { LoaderComponent } from './features/loader/loader.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,11 @@ export const routes: Routes = [
     path: 'file-explorer',
     component: FileExplorerComponent,
     title: 'Star Rating Component'
+  },
+  {
+    path:'loader',
+    component: LoaderComponent,
+    title: 'Loader Component',
   },
   {
     path: '**',
