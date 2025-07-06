@@ -5,6 +5,7 @@ import { OtpInputComponent } from './features/otp-input/otp-input.component';
 import { StarRatingComponent } from './features/star-rating/star-rating.component';
 import { FileExplorerComponent } from './features/file-explorer/file-explorer.component';
 import { LoaderComponent } from './features/loader/loader.component';
+import { TypeaheadComponent } from './features/typeahead/typeahead.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,11 @@ export const routes: Routes = [
     path:'loader',
     component: LoaderComponent,
     title: 'Loader Component',
+  },
+  {
+    path:'typeahead',
+    component: TypeaheadComponent,
+    title: 'Typeahead Component',
   },
   {
     path: '**',

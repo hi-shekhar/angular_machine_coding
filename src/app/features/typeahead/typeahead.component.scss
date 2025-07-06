@@ -1,0 +1,51 @@
+.typeahead-container {
+    position: relative;
+}
+
+.typeahead-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    outline: none;
+
+    &:focus {
+        border-color: #007bff;
+    }
+}
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &.highlighted {
+        background-color: #e0e0e0;
+    }
+}
+
+.no-results {
+    padding: 8px 12px;
+    color: #888;
+    font-style: italic;
+    text-align: center;
+}
