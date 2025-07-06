@@ -1,0 +1,24 @@
+<div class="page-container">
+    <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
+
+    <h2 class="page-title">Typeahead Component</h2>
+    <section class="typeahead-container">
+        <input type="text" placeholder="Search..." [(ngModel)]="inputValue" (input)="onInputChange()"
+            (keydown)="onKeyDown($event)" (focus)="onInputFocus()" class="typeahead-input">
+
+        @if (isDropdownOpen()) {
+        <div class="suggestions-dropdown">
+            @if (filteredSuggestions().length > 0) {
+            @for (suggestion of filteredSuggestions(); track $index) {
+            <div class="suggestion-item" [class.highlighted]="highlightedIndex() === $index"
+                (click)="selectSuggestion(suggestion)">
+                {{ suggestion }}
+            </div>
+            }
+            } @else {
+            <div class="no-results">No matches found</div>
+            }
+        </div>
+        }
+    </section>
+</div>
