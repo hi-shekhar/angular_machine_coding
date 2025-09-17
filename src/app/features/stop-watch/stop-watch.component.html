@@ -2,4 +2,25 @@
   <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
 
   <h2 class="page-title">StopWatch</h2>
+
+  <div class="stopwatch-display">{{ formatTime(time()) }}</div>
+  <div class="stopwatch-controls">
+    <button
+      class="stopwatch-btn start-btn"
+      (click)="handleStart()"
+      [disabled]="running()"
+    >
+      Start
+    </button>
+    <button
+      class="stopwatch-btn pause-btn"
+      (click)="handlePause()"
+      [disabled]="!running()"
+    >
+      Pause
+    </button>
+    <button class="stopwatch-btn reset-btn" (click)="handleReset()">
+      Reset
+    </button>
+  </div>
 </div>
