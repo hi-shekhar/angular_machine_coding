@@ -3,7 +3,7 @@
 
     <h2 class="page-title">Typeahead Component</h2>
     <section class="typeahead-container">
-        <input type="text" placeholder="Search..." [(ngModel)]="inputValue" (input)="onInputChange()"
+        <input type="text" placeholder="Search Country..." [(ngModel)]="inputValue" (input)="onInputChange()"
             (keydown)="onKeyDown($event)" (focus)="onInputFocus()" class="typeahead-input">
 
         @if (isDropdownOpen()) {

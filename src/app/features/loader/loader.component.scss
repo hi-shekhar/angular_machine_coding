@@ -1,83 +1,90 @@
-@use '../../../styles/variables' as vars;
+@use "../../../styles/variables" as vars;
+
+.loaders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .spinner {
-    width: 32px;
-    height: 32px;
-    border: 5px solid vars.$color-background-light;
-    border-bottom-color: vars.$color-primary-blue;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 5px solid vars.$color-danger;
+  border-bottom-color: vars.$color-primary-blue;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  box-sizing: border-box;
+  align-self: center;
 }
 
 @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .progress-loader {
-    height: 5px;
+  height: 5px;
 }
 
 .progress-ball {
-    height: 28px;
+  height: 28px;
 }
 
 .progress-loader,
 .progress-ball {
-    background-color: vars.$color-background-light;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    border: 1px solid vars.$color-secondary-gray;
-    border-radius: 20px;
-    box-sizing: border-box;
-    position: relative;
+  background-color: vars.$color-background-light;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid vars.$color-secondary-gray;
+  border-radius: 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .progress-loader::after {
-    content: '';
-    display: block;
-    height: 100%;
-    background-color: vars.$color-primary-blue;
-    width: 0;
-    animation: progress-fill 2s ease-in-out infinite;
+  content: "";
+  display: block;
+  height: 100%;
+  background-color: vars.$color-danger;
+  width: 0;
+  animation: progress-fill 2s ease-in-out infinite;
 }
 
 @keyframes progress-fill {
-    to {
-        width: 100%;
-    }
+  to {
+    width: 100%;
+  }
 }
 
 .progress-ball::after {
-    content: '';
-    display: block;
-    background-color: vars.$color-primary-blue;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: ball-travel 2s ease-in-out infinite alternate;
+  content: "";
+  display: block;
+  background-color: vars.$color-danger;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: ball-travel 2s ease-in-out infinite alternate;
 }
 
 @keyframes ball-travel {
-    0% {
-        left: 0;
-        transform: translate(0%, -50%);
-    }
+  0% {
+    left: 0;
+    transform: translate(0%, -50%);
+  }
 
-    100% {
-        left: 100%;
-        transform: translate(-100%, -50%);
-    }
+  100% {
+    left: 100%;
+    transform: translate(-100%, -50%);
+  }
 }

@@ -1,4 +1,4 @@
-@use '../../styles/variables' as vars;
+@use "../../styles/variables" as vars;
 
 .home-container {
   max-width: 960px;
@@ -9,10 +9,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
+.site-header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   text-align: center;
-  color: vars.$color-primary-blue;
-  margin-bottom: 10px;
+  h1 {
+    margin: 0;
+  }
 }
 
 p {
@@ -36,6 +40,7 @@ p {
   text-decoration: none;
   color: vars.$color-text-dark;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-align: center;
 
   &:hover {
     transform: translateY(-5px);

@@ -1,38 +1,38 @@
-@use '../styles/variables' as vars;
+@use "../styles/variables" as vars;
 
 .app-header {
-    background-color: vars.$color-primary-blue;
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: vars.$color-primary-blue;
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-    nav {
-        max-width: 960px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
+  nav {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    color: vars.$color-text-light;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    &:hover {
+      color: vars.$color-text-light;
     }
-
-    .logo {
-        color: vars.$color-text-light;
-        text-decoration: none;
-        font-size: 1.5em;
-        font-weight: bold;
-
-        &:hover {
-            color: vars.$color-text-light;
-        }
-    }
+  }
 }
 
 .app-main {
-    min-height: calc(100vh - 120px);
-    padding-bottom: 20px;
+  min-height: calc(100vh - 120px);
+  padding-bottom: 20px;
 }
 
 .app-footer {
-    background-color: vars.$color-text-dark;
-    color: vars.$color-text-light;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
+  background-color: vars.$color-text-dark;
+  color: vars.$color-text-light;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
 }

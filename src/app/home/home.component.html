@@ -1,25 +1,12 @@
 <div class="home-container">
-    <h1>Frontend Machine Coding Catalog</h1>
-    <p>Explore solutions to common frontend interview questions.</p>
-
-    <div class="catalog-list">
-        <a routerLink="/infinite-scroll" class="catalog-item">
-            <h3>Infinite Scroll List (Virtual Scrolling)</h3>
-        </a>
-        <a routerLink="/otp-input" class="catalog-item">
-            <h3>OTP Input Component</h3>
-        </a>
-        <a routerLink="/star-rating" class="catalog-item">
-            <h3>Star Rating Component</h3>
-        </a>
-        <a routerLink="/file-explorer" class="catalog-item">
-            <h3>File Explorer Component</h3>
-        </a>
-        <a routerLink="/loader" class="catalog-item">
-            <h3>Loader Component</h3>
-        </a>
-        <a routerLink="/typeahead" class="catalog-item">
-            <h3>Typeahead Component</h3>
-        </a>
-    </div>
+  <header class="site-header">
+    <h1>Angular Machine Coding</h1>
+  </header>
+  <div class="catalog-list">
+    @for(project of projects; track project.id) {
+    <a routerLink="/{{ project.id }}" class="catalog-item">
+      <h3>{{ project.name }}</h3>
+    </a>
+    }
+  </div>
 </div>

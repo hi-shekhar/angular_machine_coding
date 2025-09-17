@@ -1,33 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoaderType } from '../../shared/types'
-
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-loader',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule, RouterLink],
   template: `
-    @if (isLoading) {
-  <div class="page-container">
-      @switch (type) {
-        @case ('Progress') {
-          <div class="progress-loader"></div>
-        }
-        @case ('Progress-Ball') {
-          <div class="progress-ball"></div>
-        }
-        @default {
-          <div class="spinner"></div>
-        }
-      }
-  </div> }
+    <div class="page-container">
+      <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
+      <div class="loaders">
+        <div class="progress-loader"></div>
+        <div class="spinner"></div>
+        <div class="progress-ball"></div>
+      </div>
+    </div>
   `,
-  styleUrls: ['./loader.component.scss']
+  styleUrls: ['./loader.component.scss'],
 })
-export class LoaderComponent {
-  @Input() isLoading = false;
-  @Input() type: LoaderType = 'Basic';
-}
+export class LoaderComponent {}

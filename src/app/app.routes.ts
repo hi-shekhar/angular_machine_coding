@@ -6,46 +6,52 @@ import { StarRatingComponent } from './features/star-rating/star-rating.componen
 import { FileExplorerComponent } from './features/file-explorer/file-explorer.component';
 import { LoaderComponent } from './features/loader/loader.component';
 import { TypeaheadComponent } from './features/typeahead/typeahead.component';
+import { StopWatchComponent } from './features/stop-watch/stop-watch.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Machine Coding Catalog'
+    title: 'Angular Machine Coding Catalog',
   },
   {
     path: 'infinite-scroll',
     component: ItemsListComponent,
-    title: 'Infinite Scroll List'
+    title: 'Infinite Scroll List',
   },
   {
     path: 'otp-input',
     component: OtpInputComponent,
-    title: 'Otp Input Component'
+    title: 'Otp Input',
   },
   {
     path: 'star-rating',
     component: StarRatingComponent,
-    title: 'Star Rating Component'
+    title: 'Star Rating',
   },
   {
     path: 'file-explorer',
     component: FileExplorerComponent,
-    title: 'Star Rating Component'
+    title: 'Star Rating',
   },
   {
-    path:'loader',
+    path: 'loader',
     component: LoaderComponent,
-    title: 'Loader Component',
+    title: 'Loader',
   },
   {
-    path:'typeahead',
+    path: 'typeahead',
     component: TypeaheadComponent,
-    title: 'Typeahead Component',
+    title: 'Typeahead',
+  },
+  {
+    path: 'stopwatch',
+    component: StopWatchComponent,
+    title: 'Stop Watch',
   },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
