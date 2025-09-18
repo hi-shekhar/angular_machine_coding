@@ -31,6 +31,10 @@ const projects: Project[] = [
     id: 'stopwatch',
     name: 'Stop Watch',
   },
+  {
+    id: 'reactive-form',
+    name: 'Reactive Form',
+  },
 ];
 
 export default projects;

@@ -7,6 +7,7 @@ import { FileExplorerComponent } from './features/file-explorer/file-explorer.co
 import { LoaderComponent } from './features/loader/loader.component';
 import { TypeaheadComponent } from './features/typeahead/typeahead.component';
 import { StopWatchComponent } from './features/stop-watch/stop-watch.component';
+import { ReactiveFormComponent } from './features/reactive-form/reactive-form.component';
 
 export const routes: Routes = [
   {
@@ -48,6 +49,11 @@ export const routes: Routes = [
     path: 'stopwatch',
     component: StopWatchComponent,
     title: 'Stop Watch',
+  },
+  {
+    path: 'reactive-form',
+    component: ReactiveFormComponent,
+    title: 'Reactive Form',
   },
   {
     path: '**',
