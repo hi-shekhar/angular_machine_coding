@@ -47,6 +47,7 @@ export class ReactiveFormComponent implements OnInit {
   private fb = inject(FormBuilder);
   profileForm!: FormGroup;
   addressFormGroup!: FormGroup;
+  isSubmitted = false;
 
   ngOnInit(): void {
     this.profileForm = this.fb.group(
@@ -109,6 +110,11 @@ export class ReactiveFormComponent implements OnInit {
   onSubmit(): void {
     if (this.profileForm.valid) {
       console.log('Form submitted:', this.profileForm.value);
+      this.isSubmitted = true;
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        this.isSubmitted = false;
+      }, 3000);
     } else {
       console.log('Form is invalid.');
       this.profileForm.markAllAsTouched();

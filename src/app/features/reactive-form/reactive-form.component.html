@@ -143,8 +143,13 @@
       >
         Submit
       </button>
-      <button mat-flat-button (click)="onReset()">Reset</button>
-      <button mat-flat-button (click)="onLoad()">Load</button>
+      <button mat-flat-button type="button" (click)="onReset()">Reset</button>
+      <button mat-flat-button type="button" (click)="onLoad()">Load</button>
     </div>
   </form>
+  @if(isSubmitted) {
+  <div class="success-message">
+    <mat-icon>check_circle</mat-icon> Form Submitted Successfully!
+  </div>
+  }
 </div>
