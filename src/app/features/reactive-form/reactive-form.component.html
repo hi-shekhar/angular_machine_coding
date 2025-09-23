@@ -1,0 +1,155 @@
+<div class="page-container">
+  <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
+
+  <h2 class="page-title">Reactive Form</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <h3>Personal Information</h3>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput formControlName="firstName" />
+        @if(profileForm.get('firstName')?.hasError('required')) {
+        <mat-error>First Name is required.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput formControlName="lastName" />
+        @if(profileForm.get('lastName')?.hasError('required')) {
+        <mat-error>Last Name is required.</mat-error>
+        } @if(profileForm.get('lastName')?.hasError('maxlength')) {
+        <mat-error>Max length is 20.</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="conditional-field">
+        <mat-checkbox formControlName="isProfessional"
+          >I'm a professional</mat-checkbox
+        >
+        @if(profileForm.get('isProfessional')?.value) {
+        <mat-form-field>
+          <mat-label>Job Title</mat-label>
+          <input type="text" matInput formControlName="jobTitle" />
+          @if(profileForm.get('jobTitle')?.hasError('required')) {
+          <mat-error>Job Title is required.</mat-error>
+          }
+        </mat-form-field>
+        }
+      </div>
+    </div>
+
+    <div class="form-section" [formGroup]="addressFormGroup">
+      <h3>Address</h3>
+      <mat-form-field>
+        <mat-label>Street</mat-label>
+        <input type="text" matInput formControlName="street" />
+        @if(addressFormGroup.get('street')?.hasError('required')) {
+        <mat-error>Street is required.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input type="text" matInput formControlName="city" />
+        @if(addressFormGroup.get('city')?.hasError('required')) {
+        <mat-error>City is required.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>State</mat-label>
+        <input type="text" matInput formControlName="state" />
+        @if(addressFormGroup.get('state')?.hasError('required')) {
+        <mat-error>State is required.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Zip Code</mat-label>
+        <input type="text" matInput formControlName="zip" />
+        @if(addressFormGroup.get('zip')?.hasError('required')) {
+        <mat-error>Zip is required.</mat-error>
+        } @if(addressFormGroup.get('zip')?.hasError('pattern')) {
+        <mat-error>Zip is invalid.</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="form-section">
+      <h3>Contact</h3>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+        @if(profileForm.get('email')?.hasError('required')) {
+        <mat-error>Email is required.</mat-error>
+        } @if(profileForm.get('email')?.hasError('email')) {
+        <mat-error>Invalid email format.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Email</mat-label>
+        <input type="text" matInput formControlName="confirmEmail" />
+        @if(profileForm.get('confirmEmail')?.hasError('required')) {
+        <mat-error>Confirm Email is required.</mat-error>
+        }
+      </mat-form-field>
+      @if(profileForm.errors?.['emailMismatch']){
+      <mat-error class="global-error">Emails do not match</mat-error>
+      }
+    </div>
+
+    <div class="form-section">
+      <h3>Phone</h3>
+      <div class="add-phone-btn">
+        <button
+          type="button"
+          mat-flat-button
+          color="accent"
+          (click)="addPhone()"
+        >
+          <mat-icon>add</mat-icon> Add Phone
+        </button>
+      </div>
+
+      @for (phoneGroup of phoneArray.controls; track $index) {
+      <div [formGroup]="$any(phoneGroup)" class="phone-group">
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input type="text" matInput formControlName="number" />
+          @if(phoneGroup.get('number')?.hasError('required')) {
+          <mat-error>Number is required.</mat-error>
+          } @if(phoneGroup.get('number')?.hasError('pattern')) {
+          <mat-error>10 digit number is required.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="home">Home</mat-option>
+            <mat-option value="work">Work</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button type="button" mat-icon-button (click)="removePhone($index)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="profileForm.invalid"
+      >
+        Submit
+      </button>
+      <button mat-flat-button type="button" (click)="onReset()">Reset</button>
+      <button mat-flat-button type="button" (click)="onLoad()">Load</button>
+    </div>
+  </form>
+  @if(isSubmitted) {
+  <div class="success-message">
+    <mat-icon>check_circle</mat-icon> Form Submitted Successfully!
+  </div>
+  }
+</div>
