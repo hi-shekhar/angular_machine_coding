@@ -64,6 +64,14 @@ export const routes: Routes = [
     title: 'Stop Watch',
   },
   {
+    path: 'reactive-form',
+    loadComponent: () =>
+      import('./features/reactive-form/reactive-form.component').then(
+        (c) => c.ReactiveFormComponent
+      ),
+    title: 'Reactive Form',
+  },
+  {
     path: 'dynamic',
     loadComponent: () =>
       import('./features/dynamic/dynamic.component').then(
