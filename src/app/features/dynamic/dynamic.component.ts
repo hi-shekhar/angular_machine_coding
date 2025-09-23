@@ -8,6 +8,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'hello',
@@ -43,7 +44,7 @@ export class HelloComponent {
 @Component({
   selector: 'app-dynamic',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, RouterLink],
   templateUrl: './dynamic.component.html',
   styleUrl: './dynamic.component.scss',
 })
