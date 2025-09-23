@@ -48,42 +48,35 @@ export class HelloComponent {
   styleUrl: './dynamic.component.scss',
 })
 export class DynamicComponent {
-  // 1. ViewContainerRef: The anchor point for dynamic components
   container = viewChild('container', { read: ViewContainerRef });
-
-  // 2. TemplateRef: A reference to the content we want to project
   projectedContent = viewChild<TemplateRef<unknown>>('projectedContent');
 
-  // 3. Keep a reference to the created component to manage its lifecycle
   private helloComponentRef?: ComponentRef<HelloComponent>;
 
   loadComponent() {
-    // Get the references to the ViewContainer and Template
     const container = this.container();
     const template = this.projectedContent();
 
-    if (!container || !template) {
-      console.error('ViewContainerRef or TemplateRef not found.');
-      return;
+    // Use optional chaining for safety.
+    container?.clear();
+
+    let projectedNodes: Node[][] = [];
+
+    if (template) {
+      const projectView = container?.createEmbeddedView(template);
+      projectedNodes = [projectView?.rootNodes!];
     }
 
-    // 4. Destroy previous component to prevent duplicates
-    container.clear();
+    if (container) {
+      this.helloComponentRef = container.createComponent(HelloComponent, {
+        projectableNodes: projectedNodes,
+      });
 
-    // 5. Create the view from the template and get the root nodes
-    const projectedNodes = [template.createEmbeddedView(null).rootNodes];
+      this.helloComponentRef.setInput('name', 'Himanshu');
 
-    // 6. Create the component with projected content
-    this.helloComponentRef = container.createComponent(HelloComponent, {
-      projectableNodes: projectedNodes,
-      inputs: {
-        name: 'Himanshu',
-      },
-    });
-
-    // 7. Subscribe to the output
-    this.helloComponentRef.instance.refreshName.subscribe(() => {
-      this.helloComponentRef?.setInput('name', 'Shekhar');
-    });
+      this.helloComponentRef.instance.refreshName.subscribe(() => {
+        this.helloComponentRef?.setInput('name', 'Shekhar');
+      });
+    }
   }
 }

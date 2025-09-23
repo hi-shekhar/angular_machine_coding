@@ -2,9 +2,9 @@
   <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
   <h2 class="page-title">Dynamic Component</h2>
   <ng-container #container></ng-container>
-  <template #projectedContent>
+  <ng-template #projectedContent>
     <h3>This is the projected Description</h3>
-  </template>
+  </ng-template>
   <div class="buttons">
     <button matButton="filled" (click)="loadComponent()">Load Component</button>
   </div>
