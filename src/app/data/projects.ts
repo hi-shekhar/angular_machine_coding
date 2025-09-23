@@ -32,8 +32,8 @@ const projects: Project[] = [
     name: 'Stop Watch',
   },
   {
-    id: 'reactive-form',
-    name: 'Reactive Form',
+    id: 'dynamic',
+    name: 'Dynamic Component',
   },
 ];
 
