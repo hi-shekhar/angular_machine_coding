@@ -31,6 +31,10 @@ const projects: Project[] = [
     id: 'stopwatch',
     name: 'Stop Watch',
   },
+  {
+    id: 'dynamic',
+    name: 'Dynamic Component',
+  },
 ];
 
 export default projects;

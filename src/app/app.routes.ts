@@ -1,12 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ItemsListComponent } from './features/infinite-scroll/items-list/items-list.component';
-import { OtpInputComponent } from './features/otp-input/otp-input.component';
-import { StarRatingComponent } from './features/star-rating/star-rating.component';
-import { FileExplorerComponent } from './features/file-explorer/file-explorer.component';
-import { LoaderComponent } from './features/loader/loader.component';
-import { TypeaheadComponent } from './features/typeahead/typeahead.component';
-import { StopWatchComponent } from './features/stop-watch/stop-watch.component';
 
 export const routes: Routes = [
   {
@@ -16,38 +9,67 @@ export const routes: Routes = [
   },
   {
     path: 'infinite-scroll',
-    component: ItemsListComponent,
+    loadComponent: () =>
+      import('./features/infinite-scroll/items-list/items-list.component').then(
+        (c) => c.ItemsListComponent
+      ),
     title: 'Infinite Scroll List',
   },
   {
     path: 'otp-input',
-    component: OtpInputComponent,
+    loadComponent: () =>
+      import('./features/otp-input/otp-input.component').then(
+        (c) => c.OtpInputComponent
+      ),
     title: 'Otp Input',
   },
   {
     path: 'star-rating',
-    component: StarRatingComponent,
+    loadComponent: () =>
+      import('./features/star-rating/star-rating.component').then(
+        (c) => c.StarRatingComponent
+      ),
     title: 'Star Rating',
   },
   {
     path: 'file-explorer',
-    component: FileExplorerComponent,
+    loadComponent: () =>
+      import('./features/file-explorer/file-explorer.component').then(
+        (c) => c.FileExplorerComponent
+      ),
     title: 'Star Rating',
   },
   {
     path: 'loader',
-    component: LoaderComponent,
+    loadComponent: () =>
+      import('./features/loader/loader.component').then(
+        (c) => c.LoaderComponent
+      ),
     title: 'Loader',
   },
   {
     path: 'typeahead',
-    component: TypeaheadComponent,
+    loadComponent: () =>
+      import('./features/typeahead/typeahead.component').then(
+        (c) => c.TypeaheadComponent
+      ),
     title: 'Typeahead',
   },
   {
     path: 'stopwatch',
-    component: StopWatchComponent,
+    loadComponent: () =>
+      import('./features/stop-watch/stop-watch.component').then(
+        (c) => c.StopWatchComponent
+      ),
     title: 'Stop Watch',
+  },
+  {
+    path: 'dynamic',
+    loadComponent: () =>
+      import('./features/dynamic/dynamic.component').then(
+        (c) => c.DynamicComponent
+      ),
+    title: 'dynamic',
   },
   {
     path: '**',
