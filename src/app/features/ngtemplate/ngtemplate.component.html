@@ -1,0 +1,21 @@
+<div class="page-container">
+  <a routerLink="/" class="back-link">&larr; Back to Catalog</a>
+  <h2 class="page-title">Ng-Template</h2>
+  <h2>Simple List</h2>
+  <app-list [items]="users" [itemTemplate]="simpleTemplate"></app-list>
+
+  <h2>Detailed Cards</h2>
+  <app-list [items]="users" [itemTemplate]="cardTemplate"></app-list>
+
+  <ng-template #simpleTemplate let-user>
+    <div class="list-item">{{ user.name }} ({{ user.role }})</div>
+  </ng-template>
+
+  <ng-template #cardTemplate let-user let-isEven="isEven">
+    <div class="card" [class.even]="isEven">
+      <h3>{{ user.name }}</h3>
+      <p>Role: {{ user.role }}</p>
+      <p>ID: {{ user.id }}</p>
+    </div>
+  </ng-template>
+</div>

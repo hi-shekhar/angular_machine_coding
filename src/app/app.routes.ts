@@ -80,6 +80,14 @@ export const routes: Routes = [
     title: 'dynamic',
   },
   {
+    path: 'ng-template',
+    loadComponent: () =>
+      import('./features/ngtemplate/ngtemplate.component').then(
+        (c) => c.NgtemplateComponent
+      ),
+    title: 'ng-template',
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',
