@@ -39,6 +39,10 @@ const projects: Project[] = [
     id: 'dynamic',
     name: 'Dynamic Component',
   },
+  {
+    id: 'ng-template',
+    name: 'NgTemplate',
+  },
 ];
 
 export default projects;
