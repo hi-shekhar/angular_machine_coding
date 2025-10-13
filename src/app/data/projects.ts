@@ -1,12 +1,12 @@
-type TaskStatus = 'Pending' | 'InProgress' | 'Completed';
+export type TaskStatus = 'Pending' | 'InProgress' | 'Completed';
 
-interface Project {
+export interface Project {
   id: string;
   name: string;
   status: TaskStatus;
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     id: 'infinite-scroll',
     name: 'Infinite Scroll',
@@ -68,5 +68,3 @@ const projects: Project[] = [
     status: 'Pending',
   },
 ];
-
-export default projects;
