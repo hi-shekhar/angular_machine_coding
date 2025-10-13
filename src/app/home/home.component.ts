@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { projects } from '../data/projects';
+import { ProjectService } from '../services/project.service';
+import { Observable } from 'rxjs';
+import { Project } from '../data/projects';
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule, RouterLink],
@@ -9,5 +12,8 @@ import { projects } from '../data/projects';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  protected projects = projects;
+  private projectService = inject(ProjectService);
+
+  protected projects$: Observable<Project[]> =
+    this.projectService.filteredProjects$;
 }
