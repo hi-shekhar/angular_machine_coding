@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { projects, Project, TaskStatus } from '../data/projects';
+import { projects, Project, FilterTaskStatus } from '../data/projects';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 export class ProjectService {
   private allProjects: Project[] = projects;
 
-  private statusFilterSubject = new BehaviorSubject<string>('all');
+  private statusFilterSubject = new BehaviorSubject<FilterTaskStatus>('all');
 
   private projectFilterSubject = new BehaviorSubject<string[]>([]);
 
@@ -41,7 +41,7 @@ export class ProjectService {
     })
   );
 
-  updateFilterStatus(status: string) {
+  updateFilterStatus(status: FilterTaskStatus) {
     this.statusFilterSubject.next(status);
   }
 

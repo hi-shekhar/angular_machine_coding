@@ -1,5 +1,7 @@
 export type TaskStatus = 'Pending' | 'InProgress' | 'Completed';
 
+export type FilterTaskStatus = TaskStatus | 'all';
+
 export interface Project {
   id: string;
   name: string;

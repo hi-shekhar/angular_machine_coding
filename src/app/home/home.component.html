@@ -1,6 +1,6 @@
 <div class="home-container">
   <div class="catalog-list">
-    @for(project of projects; track project.id) {
+    @for(project of projects$ | async; track project.id) {
     <a routerLink="/{{ project.id }}" class="catalog-item">
       <h3>{{ project.name }}</h3>
       <p class="project-status {{ project.status }}">
