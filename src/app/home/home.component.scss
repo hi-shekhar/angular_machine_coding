@@ -9,22 +9,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.site-header {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  h1 {
-    margin: 0;
-  }
-}
-
-p {
-  text-align: center;
-  color: vars.$color-text-dark;
-  margin-bottom: 30px;
-}
-
 .catalog-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -53,10 +37,29 @@ p {
     margin-bottom: 10px;
   }
 
-  p {
-    color: vars.$color-secondary-gray;
+  .project-status {
+    text-align: center;
     font-size: 0.9em;
-    line-height: 1.5;
-    text-align: left;
+    font-weight: bold;
+  }
+
+  .project-status span {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.8em;
+  }
+
+  .project-status.Pending span {
+    background-color: #f39c12;
+  }
+
+  .project-status.InProgress span {
+    background-color: #3498db;
+  }
+
+  .project-status.Completed span {
+    background-color: #27ae60;
   }
 }

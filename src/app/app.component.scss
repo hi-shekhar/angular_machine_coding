@@ -29,6 +29,16 @@
   padding-bottom: 20px;
 }
 
+.site-header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  h1 {
+    margin: 0;
+  }
+}
+
 .app-footer {
   background-color: vars.$color-text-dark;
   color: vars.$color-text-light;

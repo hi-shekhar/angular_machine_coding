@@ -1,11 +1,11 @@
 <div class="home-container">
-  <header class="site-header">
-    <h1>Angular Machine Coding</h1>
-  </header>
   <div class="catalog-list">
     @for(project of projects; track project.id) {
     <a routerLink="/{{ project.id }}" class="catalog-item">
       <h3>{{ project.name }}</h3>
+      <p class="project-status {{ project.status }}">
+        Status: <span>{{ project.status }}</span>
+      </p>
     </a>
     }
   </div>
