@@ -1,0 +1,32 @@
+<mat-card class="filter-card">
+  <mat-card-content>
+    <div class="filter-group">
+      <mat-form-field appearance="outline" class="filter-control">
+        <mat-label>Filter by Status</mat-label>
+        <mat-select
+          [ngModel]="currentStatus$ | async"
+          (ngModelChange)="onStatusChange($event)"
+          name="status"
+        >
+          @for (status of statuses; track status) {
+          <mat-option [value]="status">{{ status }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter-control">
+        <mat-label>Select Specific Project(s)</mat-label>
+        <mat-select
+          [ngModel]="currentProjectIds$ | async"
+          (ngModelChange)="onProjectSelect($event)"
+          name="projects"
+          multiple
+        >
+          @for (project of (syncedProjects$ | async); track project.id) {
+          <mat-option [value]="project.id">{{ project.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -8,13 +8,19 @@ import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 export class ProjectService {
   private allProjects: Project[] = projects;
 
-  private statusFilterSubject = new BehaviorSubject<FilterTaskStatus>('all');
+  private statusFilterSubject = new BehaviorSubject<FilterTaskStatus>('All');
 
   private projectFilterSubject = new BehaviorSubject<string[]>([]);
 
+  public currentStatus$: Observable<FilterTaskStatus> =
+    this.statusFilterSubject.asObservable();
+
+  public currentProjectIds$: Observable<string[]> =
+    this.projectFilterSubject.asObservable();
+
   syncedProjects$: Observable<Project[]> = this.statusFilterSubject.pipe(
     map((status) => {
-      if (status === 'all') {
+      if (status === 'All') {
         return this.allProjects;
       } else {
         return this.allProjects.filter((project) => project.status === status);
@@ -28,7 +34,7 @@ export class ProjectService {
   ]).pipe(
     map(([statusFilter, projectFilterIds]) => {
       let finalProjects = this.allProjects;
-      if (statusFilter !== 'all') {
+      if (statusFilter !== 'All') {
         finalProjects = finalProjects.filter((p) => p.status === statusFilter);
       }
 
