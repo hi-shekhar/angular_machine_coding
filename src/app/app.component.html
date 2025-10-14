@@ -2,6 +2,25 @@
   <nav>
     <a routerLink="/" class="logo">{{ title }}</a>
   </nav>
+  <nav class="auth-btn">
+    @if(!(loginStatus$|async)) {
+    <button
+      matButton="filled"
+      style="background-color: green"
+      (click)="handleLogin()"
+    >
+      Log In
+    </button>
+    } @if(loginStatus$ | async) {
+    <button
+      matButton="filled"
+      style="background-color: brown"
+      (click)="handleLogout()"
+    >
+      Log out
+    </button>
+    }
+  </nav>
 </header>
 
 <main class="app-main">
