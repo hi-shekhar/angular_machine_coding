@@ -1,4 +1,5 @@
 <div class="home-container">
+  <app-project-filter></app-project-filter>
   <div class="catalog-list">
     @for(project of projects$ | async; track project.id) {
     <a routerLink="/{{ project.id }}" class="catalog-item">
