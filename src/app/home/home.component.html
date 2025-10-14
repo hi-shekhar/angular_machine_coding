@@ -1,13 +1,3 @@
 <div class="home-container">
-  <app-project-filter></app-project-filter>
-  <div class="catalog-list">
-    @for(project of projects$ | async; track project.id) {
-    <a routerLink="/{{ project.id }}" class="catalog-item">
-      <h3>{{ project.name }}</h3>
-      <p class="project-status {{ project.status }}">
-        Status: <span>{{ project.status }}</span>
-      </p>
-    </a>
-    }
-  </div>
+  <router-outlet></router-outlet>
 </div>

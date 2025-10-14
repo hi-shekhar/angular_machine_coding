@@ -12,6 +12,10 @@
     justify-content: center;
   }
 
+  nav.auth-btn {
+    justify-content: end;
+  }
+
   .logo {
     color: vars.$color-text-light;
     text-decoration: none;
